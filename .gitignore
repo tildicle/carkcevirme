@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.sqlite
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build/Output
+dist/
+build/
