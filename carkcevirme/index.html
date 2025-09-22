@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Çark Çevirme</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="baslik">
+        <h1>🌀 ÇARK ÇEVİRME</h1>
+    </header>
+
+    <main class="wrap">
+        <!-- Sol panel -->
+        <section class="panel">
+            <p class="hint">Çevir’e bas ve çarkı çevir!</p>
+            <div class="count">Seçenek sayısı: <span id="count">0</span></div>
+
+            <div class="add-row">
+                <input id="optionInput" type="text" placeholder="Çarka seçenek ekleyin" />
+                <button id="addBtn">Ekle</button>
+            </div>
+
+            <ul id="optionList" class="list"></ul>
+
+            <div class="bulk">
+                <label class="switch">
+                    <input type="checkbox" id="bulkToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Toplu Seçenek Gir</span>
+            </div>
+            <textarea id="bulkArea" placeholder="Her satıra bir seçenek" rows="6" style="display:none"></textarea>
+            <button id="bulkAddBtn" style="display:none">Topluca Ekle</button>
+        </section>
+
+        <!-- Çark alanı -->
+        <section class="wheel-area">
+            <div class="wheel-wrap">
+                <canvas id="wheel" width="520" height="520"></canvas>
+                <!-- Ortadaki Play butonu -->
+                <button id="spinBtn" class="spin-btn" aria-label="Çevir">▶</button>
+                <!-- Üstte sabit ok -->
+                <div class="okisareti" aria-hidden="true"></div>
+            </div>
+            <div id="result" class="sonuc" role="status" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
