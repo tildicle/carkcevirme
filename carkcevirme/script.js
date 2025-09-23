@@ -1,10 +1,10 @@
-﻿// -- yardımcılar -------------------------------------------------
+﻿
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
 
 const wheel = $("#wheel");
 const ctx = wheel.getContext("2d");
-let rotation = 0;              // derece cinsinden
+let rotation = 0;              
 let spinning = false;
 
 let options = [
@@ -33,7 +33,7 @@ function redraw() {
 
     const colors = COLORS(options.length);
     const arc = (2 * Math.PI) / options.length;
-    const rot = (rotation * Math.PI) / 180; // radyan
+    const rot = (rotation * Math.PI) / 180; 
 
     for (let i = 0; i < options.length; i++) {
         const start = i * arc + rot;
@@ -54,7 +54,7 @@ function redraw() {
         ctx.textAlign = "right";
         ctx.fillStyle = "white";
         ctx.font = "bold 22px system-ui, -apple-system, Segoe UI, Roboto";
-        // metni içe doğru yazalım
+        
         ctx.fillText(options[i], r - 16, 7);
         ctx.restore();
     }
@@ -134,21 +134,20 @@ function spin() {
     const n = options.length;
     const arcDeg = 360 / n;
 
-    // Rastgele kazanan
+   
     const winnerIndex = Math.floor(Math.random() * n);
 
-    // Her dilimin orta açısı (tepe yönü = 0°; saat yönünde artıyor)
+  
     const targetAngle = winnerIndex * arcDeg + arcDeg / 2;
 
-    // Çarkı hedefin altına getirmek için: tepe 0°'da sabit, biz çarkı çeviriyoruz.
-    // finalRotation öyle olmalı ki (rotation % 360) == (360 - targetAngle)
+
     let finalRotation = (360 - targetAngle);
-    // heyecan için birkaç tam tur ekleyelim:
-    finalRotation += 360 * (5 + Math.floor(Math.random() * 4)); // 5–8 tur
+
+    finalRotation += 360 * (5 + Math.floor(Math.random() * 4));
 
     const start = rotation;
-    const delta = ((finalRotation - start) + 360 * 20) % 3600; // negatif riskine karşı mod
-    const dur = 4000; // ms
+    const delta = ((finalRotation - start) + 360 * 20) % 3600; 
+    const dur = 4000;
     const t0 = performance.now();
 
     const tick = (t) => {
@@ -172,6 +171,5 @@ function spin() {
 
 spinBtn.addEventListener("click", spin);
 
-// -- init --------------------------------------------------------
 refreshList();
 redraw();

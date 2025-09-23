@@ -43,7 +43,6 @@ body {
     }
 }
 
-/* Panel (sol) */
 .panel {
     background: var(--card);
     border: 1px solid #e9e6ff;
