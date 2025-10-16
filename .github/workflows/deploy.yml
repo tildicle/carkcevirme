@@ -21,11 +21,10 @@ jobs:
       - name: 📦 Checkout
         uses: actions/checkout@v4
 
-      # Eğer sadece HTML, CSS, JS varsa build'e gerek yok
       - name: 📂 Prepare static site
         run: |
           mkdir dist
-          cp -r index.html style.css script.js dist/
+          cp -r carkcevirme/* dist/
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
